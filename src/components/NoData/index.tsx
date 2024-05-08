@@ -1,5 +1,5 @@
-import { ReactComponent as NoData } from '../../assets/emptyData2.svg';
-import Typography from '../Typography';
+import { ReactComponent as NoData } from "../../assets/emptyData2.svg";
+import Typography from "../Typography";
 type Props = {
   message?: string;
   height?: number;
@@ -10,7 +10,7 @@ const EmptyData = ({ message, height }: Props) => {
       <NoData height={height} />
       <div
         style={{
-          textAlign: 'center',
+          textAlign: "center",
         }}
       >
         <Typography variant="title" fontColor="secondary">

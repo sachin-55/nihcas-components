@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import Typography from '../Typography';
+import Typography from "../Typography";
 import {
   FormContainerStyled,
   FormError,
   FormLabel,
   LabelWrapper,
-} from './style';
+} from "./style";
 
 type Props = {
   label: string;
@@ -25,7 +25,7 @@ const FormContainer = ({
   error,
   style,
   className,
-  marginBottom = '30px',
+  marginBottom = "30px",
   subLabel,
   ...restProps
 }: Props) => {
@@ -37,12 +37,12 @@ const FormContainer = ({
       {...restProps}
     >
       <LabelWrapper>
-        <FormLabel className={error ? 'error' : 'normal-label'}>
+        <FormLabel className={error ? "error" : "normal-label"}>
           {label}
         </FormLabel>
         {subLabel && (
           <Typography variant="caption" fontColor="border">
-            {' '}
+            {" "}
             {subLabel}
           </Typography>
         )}

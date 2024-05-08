@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import Checkbox from '../Checkbox';
-import Divider from '../Divider';
-import Loader from '../Loader';
-import Typography from '../Typography';
-import { ITableProps } from '.';
+import Checkbox from "../Checkbox";
+import Divider from "../Divider";
+import Loader from "../Loader";
+import Typography from "../Typography";
+import { ITableProps } from ".";
 import {
   IndividualTableRow,
   LoadingStyled,
   NodataStyled,
   TableCardRow,
   TableCardViewContainer,
-} from './style';
+} from "./style";
 
 interface ITableViewCardProps extends ITableProps {
   handleTableDataCheck: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -21,7 +21,7 @@ const TableCardView = ({
   tableData,
   rowClick = undefined,
   isLoading = false,
-  noData = 'No data to display on Table.',
+  noData = "No data to display on Table.",
   ellipsis = true,
   checkedData = [],
   showCheckBox = true,
@@ -44,7 +44,7 @@ const TableCardView = ({
           <IndividualTableRow
             key={body.id}
             onClick={() => rowClick && rowClick(body.id, body)}
-            className={`data-row ${rowClick ? 'row-clickable' : ''}`}
+            className={`data-row ${rowClick ? "row-clickable" : ""}`}
           >
             {showCheckBox && (
               <>
@@ -57,7 +57,7 @@ const TableCardView = ({
               </>
             )}
             {tableData?.headings.map((heading, index) => {
-              if (heading.key === 'actions') {
+              if (heading.key === "actions") {
                 return (
                   <TableCardRow className="actions" key={`${body.id}-${index}`}>
                     {body[heading.key]}
@@ -71,7 +71,7 @@ const TableCardView = ({
                   </Typography>
                   <Typography
                     style={{ fontWeight: 500 }}
-                    className={ellipsis ? 'ellipsis' : ''}
+                    className={ellipsis ? "ellipsis" : ""}
                   >
                     {body[heading.key]}
                   </Typography>

@@ -1,14 +1,14 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useState } from "react";
 
-import { ReactComponent as ChevronIcon } from '../../assets/icons/downChevron.svg';
-import Typography from '../Typography';
-import { FontColorType, VariantType } from '../Typography/type';
+import { ReactComponent as ChevronIcon } from "../../assets/icons/downChevron.svg";
+import Typography from "../Typography";
+import { FontColorType, VariantType } from "../Typography/type";
 import {
   AccordionContainerStyled,
   AccordionContent,
   AccordionStyled,
   AccordionTitle,
-} from './style';
+} from "./style";
 
 type Props = {
   items: Array<{
@@ -25,9 +25,9 @@ type Props = {
 
 const Accordion = ({
   items,
-  maxVhContentHeight = 'calc(100vh - 140px)',
+  maxVhContentHeight = "calc(100vh - 140px)",
 }: Props) => {
-  const [openAccordion, setOpenAccordion] = useState('');
+  const [openAccordion, setOpenAccordion] = useState("");
 
   return (
     <AccordionContainerStyled>
@@ -36,13 +36,13 @@ const Accordion = ({
           <AccordionTitle
             className="accordion-title"
             onClick={() =>
-              setOpenAccordion((prev) => (prev === item.key ? '' : item.key))
+              setOpenAccordion((prev) => (prev === item.key ? "" : item.key))
             }
             $isOpen={openAccordion === item.key}
           >
             <div className="title-icon-wrapper">
               {item?.icon && item?.icon}
-              {typeof item?.title === 'string' ? (
+              {typeof item?.title === "string" ? (
                 <Typography
                   variant={item.titleFontVariant}
                   fontColor={item.fontColor}

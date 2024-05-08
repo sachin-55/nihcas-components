@@ -1,29 +1,19 @@
-export type VariantType =
-  | 'heading'
-  | 'title'
-  | 'normal'
-  | 'caption'
-  | 'smallText';
+import { ThemeType } from "../../theme";
 
-export type FontFamilyType = 'Raleway' | 'Libre Franklin';
-export type AsType = 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
+export type SizeType = keyof ThemeType["fontSizes"];
+export type FontWeightType = keyof ThemeType["fontWeights"];
 
-export type FontColorType =
-  | 'light'
-  | 'dark'
-  | 'normal'
-  | 'disable'
-  | 'disableButton'
-  | 'border'
-  | 'primary'
-  | 'secondary'
-  | 'white';
+export type FontFamilyType = keyof ThemeType["fontFamily"];
+export type AsType = "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span";
+
+export type FontColorType = keyof ThemeType["colors"];
 
 export type StyleType = {
-  $variant: VariantType;
   $fontFamily: FontFamilyType;
-  $size: number | undefined;
-  $strong: boolean;
+  $size: SizeType;
+  $fontWeight: FontWeightType;
   $inline?: boolean;
   $color: FontColorType;
+  $margin?: string;
+  $padding?: string;
 };

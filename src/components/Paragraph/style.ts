@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
-import { multipleLineTextEllipse } from '../../style/reusableStyle';
-import Typography from '../Typography';
+import { multipleLineTextEllipse } from "../../style/reusableStyle";
+import Typography from "../Typography";
 
 export const ParagraphStyled = styled(Typography)<{
   $numberOfVisibleLines?: number;

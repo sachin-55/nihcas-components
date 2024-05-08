@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
-import { FaCheck } from 'react-icons/fa6';
-import styled from 'styled-components';
+import React, { useRef } from "react";
+import { FaCheck } from "react-icons/fa6";
+import styled from "styled-components";
 
-import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
-import Flex from '../Flex';
-import Input from '../Input';
-import Typography from '../Typography';
+import useDetectOutsideClick from "../../hooks/useDetectOutsideClick";
+import Flex from "../Flex";
+import Input from "../Input";
+import Typography from "../Typography";
 
 type Props = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -24,8 +24,8 @@ const AutoCompleteInput = ({
   onSelect,
   options,
   name,
-  noDataText = 'No Data Found',
-  placeholder = 'Enter text',
+  noDataText = "No Data Found",
+  placeholder = "Enter text",
   ...restProps
 }: Props) => {
   const containerRef = useRef(null);
@@ -73,7 +73,7 @@ const AutoCompleteInput = ({
                     <FaCheck
                       color="green"
                       size={14}
-                      style={{ marginLeft: '14px' }}
+                      style={{ marginLeft: "14px" }}
                     />
                   )}
                 </OptionStyled>

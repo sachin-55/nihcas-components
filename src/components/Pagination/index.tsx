@@ -1,13 +1,13 @@
-import React from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
+import React from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
-import Typograpgy from '../Typography';
+import Typograpgy from "../Typography";
 import {
   ActionWrapper,
   DataCountInfoWrapper,
   PaginationButton,
   PaginationContainer,
-} from './style';
+} from "./style";
 type PaginationType = {
   style?: React.CSSProperties;
   activePage: number;
@@ -52,10 +52,10 @@ const Pagination = ({
         )
       );
     }
-    let firstBtn: string | number = '';
-    let lastBtn: string | number = '';
+    let firstBtn: string | number = "";
+    let lastBtn: string | number = "";
     if (activePage < totalPages - 2) {
-      lastBtn = 'next';
+      lastBtn = "next";
     } else {
       lastBtn = totalPages;
     }
@@ -63,7 +63,7 @@ const Pagination = ({
     if (activePage <= 2) {
       firstBtn = 1;
     } else {
-      firstBtn = 'prev';
+      firstBtn = "prev";
     }
 
     const remainingLen = maxVisibleButtons - 2;
@@ -75,7 +75,7 @@ const Pagination = ({
       if (activePage >= totalPages - remainingLen) {
         acc.push(totalPages - (remainingLen - idx));
       } else {
-        if (firstBtn === 'prev') {
+        if (firstBtn === "prev") {
           acc.push(activePage + idx);
         } else {
           if (firstBtn === 1 && activePage === 1) {
@@ -90,7 +90,7 @@ const Pagination = ({
 
     const buttonsToShow = [firstBtn, ...remainingBtns, lastBtn];
     return buttonsToShow.map((val, idx) => {
-      if (val === 'prev') {
+      if (val === "prev") {
         return (
           <PaginationButton
             onClick={() => onAction(activePage - 1)}
@@ -100,7 +100,7 @@ const Pagination = ({
           </PaginationButton>
         );
       }
-      if (val === 'next') {
+      if (val === "next") {
         return (
           <PaginationButton
             onClick={() => onAction(activePage + 1)}
@@ -110,7 +110,7 @@ const Pagination = ({
           </PaginationButton>
         );
       }
-      if (typeof val === 'number') {
+      if (typeof val === "number") {
         return (
           <PaginationButton
             $isActive={val === activePage}

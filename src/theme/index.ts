@@ -1,35 +1,32 @@
-import breakpoints, { BreakPointType } from './breakPoints';
-import colors, { ColorsType } from './colors';
-import { devices, deviceType } from './device';
-import fontWeights, { FontWeightType } from './fontWeights';
-import letterSpacings, { LetterSpacingType } from './letterSpacing';
-import lineHeights, { LineHeightsType } from './lineHeights';
-import sizes, { SizesType } from './sizes';
-import space, { SpacesType } from './spaces';
-import zIndices, { ZIndicesType } from './zIndices';
+import breakpoints, { BreakPointType } from "./breakPoints";
+import { colors, ColorsType } from "./colors";
+import { devices, deviceType } from "./device";
+import { fontFamily, FontFamilyType } from "./fontFamily";
+import { fontWeights, FontWeightType } from "./fontWeights";
+import { FontSizesType, fontSizes } from "./fontSizes";
+import { spaces, SpacesType } from "./spaces";
+import { zIndices, ZIndicesType } from "./zIndices";
 
 const theme: ThemeType = {
   colors,
-  sizes,
+  fontSizes,
   breakpoints,
-  space,
+  spaces,
   zIndices,
   fontWeights,
-  lineHeights,
-  letterSpacings,
   devices,
+  fontFamily,
 };
 
 export default theme;
 
 export interface ThemeType {
   colors: ColorsType;
-  sizes: SizesType;
+  fontSizes: FontSizesType;
   breakpoints: BreakPointType;
-  space: SpacesType;
+  spaces: SpacesType;
   zIndices: ZIndicesType;
   fontWeights: FontWeightType;
-  lineHeights: LineHeightsType;
-  letterSpacings: LetterSpacingType;
   devices: deviceType;
+  fontFamily: FontFamilyType;
 }

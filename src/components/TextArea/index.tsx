@@ -1,11 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
-import Typography from '../Typography';
-import { InputArea } from './style';
+import Typography from "../Typography";
+import { InputArea } from "./style";
 
 const MAX_ROW = 4;
 
-interface FormInputComponentProps extends React.ComponentProps<'textarea'> {
+interface FormInputComponentProps extends React.ComponentProps<"textarea"> {
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   error?: string | undefined;
   name?: string;
@@ -52,30 +52,30 @@ const FormInput = ({
 
     if (textareaRef.current) {
       const textarea = textareaRef.current;
-      textarea.addEventListener('input', handleInput);
+      textarea.addEventListener("input", handleInput);
 
       return () => {
-        textarea.removeEventListener('input', handleInput);
+        textarea.removeEventListener("input", handleInput);
       };
     }
   }, [maxRow]);
 
   return (
-    <div style={{ width: '100%', ...style }}>
+    <div style={{ width: "100%", ...style }}>
       <InputArea
         ref={textareaRef}
         name={name}
         onChange={onChange}
         rows={1}
         value={value}
-        className={`${className} ${error ? 'error' : ''}`}
+        className={`${className} ${error ? "error" : ""}`}
         maxLength={maxLength}
         style={{ ...styleTextArea }}
         {...restProps}
       />
       {showCount && maxLength ? (
-        <Typography style={{ textAlign: 'right' }}>{`${
-          (value || '').length
+        <Typography style={{ textAlign: "right" }}>{`${
+          (value || "").length
         } / ${maxLength}`}</Typography>
       ) : null}
     </div>

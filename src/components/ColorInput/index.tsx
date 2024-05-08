@@ -1,9 +1,9 @@
-import { useRef } from 'react';
-import ColorPicker, { ColorObject } from 'react-pick-color';
+import { useRef } from "react";
+import ColorPicker, { ColorObject } from "react-pick-color";
 
-import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
-import Typography from '../Typography';
-import { ColorPickerContainerStyled } from './style';
+import useDetectOutsideClick from "../../hooks/useDetectOutsideClick";
+import Typography from "../Typography";
+import { ColorPickerContainerStyled } from "./style";
 
 type Props = {
   onChange: (data: ColorObject) => void;
@@ -20,7 +20,7 @@ const ColorInput = ({ onChange, value, label, ...restProps }: Props) => {
   );
 
   const toggleVisibility = () => {
-    if (typeof setIsVisible === 'function') {
+    if (typeof setIsVisible === "function") {
       setIsVisible((prev) => !prev);
     }
   };
@@ -42,7 +42,7 @@ const ColorInput = ({ onChange, value, label, ...restProps }: Props) => {
           <ColorPicker
             color={value}
             onChange={onChange}
-            combinations={'tetrad'}
+            combinations={"tetrad"}
             {...restProps}
           />
         </div>

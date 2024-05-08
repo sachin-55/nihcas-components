@@ -1,44 +1,53 @@
-import React from 'react';
+import React from "react";
 
-import TypographyStyled from './style';
-import { AsType, FontColorType, FontFamilyType, VariantType } from './type';
+import TypographyStyled from "./style";
+import {
+  AsType,
+  FontColorType,
+  FontFamilyType,
+  FontWeightType,
+  SizeType,
+} from "./type";
 
 export interface ITypographyProps extends React.HTMLAttributes<HTMLElement> {
-  variant?: VariantType;
   fontFamily?: FontFamilyType;
-  fontColor?: FontColorType;
-  size?: number | undefined;
-  strong?: boolean;
+  color?: FontColorType;
+  size?: SizeType;
+  fontWeight?: FontWeightType;
   inline?: boolean;
   as?: AsType;
   style?: React.CSSProperties;
   ellipsis?: boolean;
+  margin?: string;
+  padding?: string;
   [key: string]: any;
 }
 
 const Typography = ({
-  fontColor = 'normal',
-  fontFamily = 'Raleway',
+  color = "black",
+  fontFamily = "Inter",
   inline = false,
-  size = undefined,
-  strong = false,
-  variant = 'normal',
+  size = "h_normal",
+  fontWeight = "regular",
   children,
-  as = 'p',
+  as = "p",
   ellipsis = false,
   className,
+  margin = "0px",
+  padding = "0px",
   ...restProps
 }: ITypographyProps) => {
   return (
     <TypographyStyled
-      as={inline ? 'span' : as}
+      as={inline ? "span" : as}
       $inline={inline}
-      $strong={strong}
-      $color={fontColor}
+      $color={color}
       $fontFamily={fontFamily}
       $size={size}
-      $variant={variant}
-      className={`${className} ${ellipsis ? 'ellipsis' : ''}`}
+      $fontWeight={fontWeight}
+      $margin={margin}
+      $padding={padding}
+      className={`${className} ${ellipsis ? "ellipsis" : ""}`}
       {...restProps}
     >
       {children}

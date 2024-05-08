@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-import { useTheme } from 'styled-components';
+import { useEffect, useRef, useState } from "react";
+import { useTheme } from "styled-components";
 
-import Button from '../Button';
-import { ITypographyProps } from '../Typography';
-import { ParagraphStyled } from './style';
+import Button from "../Button";
+import { ITypographyProps } from "../Typography";
+import { ParagraphStyled } from "./style";
 
 interface Props extends ITypographyProps {
   text?: string;
@@ -28,7 +28,7 @@ const Paragraph = ({
       const computedStyle = window.getComputedStyle(
         paragraphRef.current.children[0]
       );
-      const lineHeightValue = computedStyle.getPropertyValue('line-height');
+      const lineHeightValue = computedStyle.getPropertyValue("line-height");
       const lineHeight = parseFloat(lineHeightValue) || 24;
 
       const maxShowingHeight = lineHeight * numberOfLines;
@@ -55,9 +55,9 @@ const Paragraph = ({
         <Button
           variant="nostyle"
           onClick={handleToggleShowAllText}
-          style={{ color: theme.colors.border, marginTop: '8px' }}
+          style={{ color: theme.colors.border, marginTop: "8px" }}
         >
-          {showAll ? 'See Less' : 'See All'}
+          {showAll ? "See Less" : "See All"}
         </Button>
       )}
     </div>

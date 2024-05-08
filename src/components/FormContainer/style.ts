@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import Typography from '../Typography';
+import Typography from "../Typography";
 
 export const FormContainerStyled = styled.div<{ $marginBottom?: string }>`
   width: 100%;
-  margin-bottom: ${({ $marginBottom }) => $marginBottom || '0px'};
+  margin-bottom: ${({ $marginBottom }) => $marginBottom || "0px"};
 `;
 
 export const LabelWrapper = styled.div`

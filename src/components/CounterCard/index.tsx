@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
-import CountUp from 'react-countup';
-import styled from 'styled-components';
+import React, { ReactNode } from "react";
+import CountUp from "react-countup";
+import styled from "styled-components";
 
-import Typography from '../Typography';
+import Typography from "../Typography";
 
 const CardContainer = styled.div`
   width: 200px;
@@ -41,18 +41,18 @@ const CustomComponent: React.FC<CustomComponentProps> = ({
     <CardContainer style={style} {...restProps}>
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          color: 'black',
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          color: "black",
         }}
       >
-        <div style={{ fontSize: '14px' }}>{label}</div>
+        <div style={{ fontSize: "14px" }}>{label}</div>
         {icon}
       </div>
       <CountUp start={0} end={value} duration={2.5} separator=",">
         {({ countUpRef }) => (
-          <Typography style={{ fontSize: '20px', color: 'black' }}>
+          <Typography style={{ fontSize: "20px", color: "black" }}>
             <span ref={countUpRef} />
           </Typography>
         )}

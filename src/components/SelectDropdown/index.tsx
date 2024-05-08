@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 
-import { ReactComponent as GreenCheckSVG } from '../../assets/icons/check-green.svg';
-import { ReactComponent as CrossSVG } from '../../assets/icons/cross.svg';
-import { ReactComponent as ChevronIcon } from '../../assets/icons/downChevron.svg';
-import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
-import Typography from '../Typography';
+import { ReactComponent as GreenCheckSVG } from "../../assets/icons/check-green.svg";
+import { ReactComponent as CrossSVG } from "../../assets/icons/cross.svg";
+import { ReactComponent as ChevronIcon } from "../../assets/icons/downChevron.svg";
+import useDetectOutsideClick from "../../hooks/useDetectOutsideClick";
+import Typography from "../Typography";
 import {
   MultipleSelectedValueWrapper,
   MultiSelectChip,
@@ -12,7 +12,7 @@ import {
   OptionStyled,
   SelectDropDownContainer,
   SelectStyled,
-} from './style';
+} from "./style";
 
 type OptionsType = { label: React.ReactNode; value: string; record?: any };
 
@@ -42,8 +42,8 @@ const SelectDropDown = ({
   selected,
   error,
   multiple = false,
-  placeholder = 'Select',
-  recordValueMappingKey = 'id',
+  placeholder = "Select",
+  recordValueMappingKey = "id",
   icons,
 }: Props) => {
   const selectContainerRef = useRef<HTMLDivElement>(null);
@@ -64,7 +64,7 @@ const SelectDropDown = ({
   };
 
   const getSelectedData = () => {
-    if (typeof selected === 'string' && selected) {
+    if (typeof selected === "string" && selected) {
       const selectedRecord = options.find((x) => x.value === selected);
       return <Typography variant="normal">{selectedRecord?.label}</Typography>;
     }
@@ -94,10 +94,10 @@ const SelectDropDown = ({
       </Typography>
     );
   };
-  const classNames = [error ? 'error' : '', isFocused ? 'focus' : ''].join(' ');
+  const classNames = [error ? "error" : "", isFocused ? "focus" : ""].join(" ");
 
   const closeDropDown = () => {
-    if (typeof setIsFocused !== 'boolean') {
+    if (typeof setIsFocused !== "boolean") {
       setIsFocused(false);
     }
   };
@@ -136,7 +136,7 @@ const SelectDropDown = ({
     <SelectDropDownContainer
       ref={selectContainerRef}
       onClick={() => {
-        if (typeof setIsFocused !== 'boolean') {
+        if (typeof setIsFocused !== "boolean") {
           setIsFocused(true);
         }
       }}
@@ -144,7 +144,7 @@ const SelectDropDown = ({
     >
       <SelectStyled
         className={`${classNames} custom-select`}
-        $isVisible={typeof isFocused === 'boolean' ? isFocused : false}
+        $isVisible={typeof isFocused === "boolean" ? isFocused : false}
       >
         {icons && icons}
         {getSelectedData()}
@@ -152,7 +152,7 @@ const SelectDropDown = ({
         <ChevronIcon className="chevron-icon" />
       </SelectStyled>
       <OptionsContainerStyled
-        $isVisible={typeof isFocused === 'boolean' ? isFocused : false}
+        $isVisible={typeof isFocused === "boolean" ? isFocused : false}
         onClick={(e) => {
           e.stopPropagation();
         }}

@@ -1,6 +1,6 @@
-const zIndices = {
+export const zIndices = {
   hide: -1,
-  auto: 'auto',
+  auto: "auto",
   base: 0,
   docked: 10,
   sidebar: 500,
@@ -15,7 +15,5 @@ const zIndices = {
   toast: 1800,
   tooltip: 1900,
 };
-
-export default zIndices;
 
 export type ZIndicesType = typeof zIndices;

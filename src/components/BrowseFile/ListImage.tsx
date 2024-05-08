@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import Viewer from 'react-viewer';
+import { useState } from "react";
+import Viewer from "react-viewer";
 
-import Image from '../Image';
-import Loader from '../Loader';
-import Typograpgy from '../Typography';
+import Image from "../Image";
+import Loader from "../Loader";
+import Typograpgy from "../Typography";
 import {
   CloseIcon,
   ImagesWrapperStyled,
   IndividualFileImageWrapper,
   IndividualURLImageWrapper,
-} from './style';
+} from "./style";
 
 const ListImages = ({
   files,
@@ -22,9 +22,9 @@ const ListImages = ({
   callbackAfterDeletion,
   enableRemoveImage = false,
   noWrapper = false,
-  imageHeight = '100px',
-  imageWidth = '100%',
-  imageGap = '20px',
+  imageHeight = "100px",
+  imageWidth = "100%",
+  imageGap = "20px",
   enablePreview = true,
 }: {
   files?: File[];
@@ -81,14 +81,14 @@ const ListImages = ({
       files.length > 0 &&
       files.map((img, idx) => {
         if (
-          !img.type.includes('image') &&
-          !img.type.includes('application/pdf')
+          !img.type.includes("image") &&
+          !img.type.includes("application/pdf")
         ) {
           return null;
         }
         return (
           <div
-            style={{ display: 'inline-block', width: 'inherit' }}
+            style={{ display: "inline-block", width: "inherit" }}
             key={`${img?.name}-${idx}`}
           >
             <IndividualFileImageWrapper
@@ -104,7 +104,7 @@ const ListImages = ({
               )}
               <Image
                 src={
-                  img.type.includes('image')
+                  img.type.includes("image")
                     ? URL.createObjectURL(img)
                     : `https://via.placeholder.com/500?text=${img.name}`
                 }
@@ -119,9 +119,9 @@ const ListImages = ({
             </IndividualFileImageWrapper>
             <Typograpgy
               style={{
-                maxWidth: '100px',
-                overflow: 'hidden',
-                maxHeight: '10px',
+                maxWidth: "100px",
+                overflow: "hidden",
+                maxHeight: "10px",
               }}
               className="ellipsis"
               variant="smallText"
@@ -164,7 +164,7 @@ const ListImages = ({
                 setShowFullImageViewer(true);
               }
             }}
-            className={enablePreview ? 'cursor-pointer' : ''}
+            className={enablePreview ? "cursor-pointer" : ""}
           />
           {Array.isArray(isDeletingIds) && isDeletingIds?.includes(img.id) && (
             <div className="loader">
