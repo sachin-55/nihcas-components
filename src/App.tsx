@@ -11,7 +11,7 @@ function App() {
       >
         <p style={{}}>HELLO DUDE</p>
 
-        <Button>This is a button</Button>
+        <Button variant="no-style">This is a button</Button>
       </Flex>
     </>
   );

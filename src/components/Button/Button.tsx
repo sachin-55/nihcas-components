@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
-import { ButtonStyled } from "./style";
 import { ThemeType } from "../../theme";
+import { ButtonStyled } from "./style";
 
 export type ButtonVariantType =
   | "primary"
@@ -8,8 +8,9 @@ export type ButtonVariantType =
   | "danger"
   | "solid"
   | "outline"
-  | "gradient"
   | "no-style";
+
+export type ButtonSizeType = "xsm" | "sm" | "md" | "lg" | "xl";
 
 interface ButtonPropsType extends ComponentProps<"button"> {
   children?: React.ReactNode;
@@ -19,62 +20,69 @@ interface ButtonPropsType extends ComponentProps<"button"> {
   borderRadius?: string;
   borderColor?: keyof ThemeType["colors"];
   bgColor?: keyof ThemeType["colors"];
-  textColor?: keyof ThemeType["colors"];
   hoverColor?: keyof ThemeType["colors"];
+  hoverBgColor?: keyof ThemeType["colors"];
 
   // Size Props
   width?: string;
   height?: string;
   fontSize?: keyof ThemeType["fontSizes"];
+  fontFamily?: keyof ThemeType["fontFamily"];
+  color?: keyof ThemeType["colors"];
+  fontWeight?: keyof ThemeType["fontWeights"];
   padding?: string;
   margin?: string;
   isDisabled?: boolean;
   isLoading?: boolean;
   type?: "submit" | "button" | "reset";
 
-  // Icon Props
-  icon?: React.ReactNode;
-  iconPosition?: "left" | "right";
-  iconColor?: string;
+  size?: ButtonSizeType;
 }
 
 const Button = ({
   children,
   variant = "primary",
-  borderColor = "transparent",
+  borderColor = "primary",
   borderRadius = "12px",
-  bgColor = "primary",
-  textColor = "white",
-  hoverColor = "secondary",
-  width = "100%",
-  height = "40px",
-  fontSize = "h_normal",
-  padding = "8px 20px",
+  bgColor,
+  color,
+  hoverColor = "whiteSmoke",
+  hoverBgColor = "accent",
+  width = "270px",
+  height,
+  fontSize,
+  padding,
   margin = "0px",
   title = "OK",
+  fontFamily,
+  fontWeight,
+  isDisabled,
+  isLoading,
+  size = "sm",
+
   ...restProps
 }: ButtonPropsType) => {
-  const renderText = (text: string) => {
-    return text;
-  };
   return (
     <ButtonStyled
       $bgColor={bgColor}
       $borderColor={borderColor}
       $borderRadius={borderRadius}
       $fontSize={fontSize}
-      $height={height}
-      $hoverColor={hoverColor}
       $margin={margin}
       $padding={padding}
-      $textColor={textColor}
+      $color={color}
       $variant={variant}
+      $fontFamily={fontFamily}
+      $fontWeight={fontWeight}
+      $height={height}
       $width={width}
+      $hoverColor={hoverColor}
+      $hoverBgColor={hoverBgColor}
+      $size={size}
+      disabled={isDisabled || isLoading}
       {...restProps}
     >
-      {typeof children === "string"
-        ? renderText(children)
-        : children || renderText(title)}
+      {children || title}
     </ButtonStyled>
   );
 };
