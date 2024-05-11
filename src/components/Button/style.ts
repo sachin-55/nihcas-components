@@ -40,35 +40,35 @@ const getVariantWiseButton = (variant?: ButtonVariantType) => {
   switch (variant) {
     case "primary":
       return css<ButtonStyleProps>`
-        background-color: ${({ theme }) => theme.colors.primary};
-        color: ${({ theme }) => theme.colors.white};
+        background-color: ${({ theme }) => theme?.colors?.primary};
+        color: ${({ theme }) => theme?.colors?.white};
       `;
     case "secondary":
       return css<ButtonStyleProps>`
-        background-color: ${({ theme }) => theme.colors.secondary};
-        color: ${({ theme }) => theme.colors.white};
+        background-color: ${({ theme }) => theme?.colors?.secondary};
+        color: ${({ theme }) => theme?.colors?.white};
       `;
     case "danger":
       return css<ButtonStyleProps>`
-        background-color: ${({ theme }) => theme.colors.danger};
-        color: ${({ theme }) => theme.colors.white};
+        background-color: ${({ theme }) => theme?.colors?.danger};
+        color: ${({ theme }) => theme?.colors?.white};
       `;
     case "solid":
       return css<ButtonStyleProps>`
         background-color: ${({ theme, $bgColor }) =>
-          $bgColor ? theme.colors[$bgColor] : theme.colors.primary};
+          $bgColor ? theme?.colors[$bgColor] : theme?.colors?.primary};
         color: ${({ theme, $color }) =>
-          $color ? theme.colors[$color] : theme.colors.white};
+          $color ? theme?.colors[$color] : theme?.colors?.white};
       `;
     case "outline":
       return css<ButtonStyleProps>`
         background-color: ${({ theme, $bgColor }) =>
-          $bgColor ? theme.colors[$bgColor] : theme.colors.transparent};
+          $bgColor ? theme?.colors[$bgColor] : theme?.colors?.transparent};
         color: ${({ theme, $color }) =>
-          $color ? theme.colors[$color] : theme.colors.primary};
+          $color ? theme?.colors[$color] : theme?.colors?.primary};
         border: 2px solid
           ${({ theme, $borderColor }) =>
-            $borderColor ? theme.colors[$borderColor] : theme.colors.primary};
+            $borderColor ? theme?.colors[$borderColor] : theme?.colors?.primary};
       `;
     case "no-style":
       return css<ButtonStyleProps>`
@@ -120,17 +120,17 @@ export const ButtonStyled = styled.button<ButtonStyleProps>`
   ${defaultButton};
   ${({ $variant }) => getVariantWiseButton($variant)};
   font-weight: ${({ theme, $fontWeight }) =>
-    $fontWeight ? theme.fontWeights[$fontWeight] : theme.fontWeights.medium};
+    $fontWeight ? theme?.fontWeights[$fontWeight] : theme?.fontWeights?.medium};
 
   font-size: ${({ theme, $fontSize, $size }) =>
     $fontSize
-      ? theme.fontSizes[$fontSize]
+      ? theme?.fontSizes[$fontSize]
       : $size
-      ? theme.fontSizes[buttonSizes[$size].fontSize]
-      : theme.fontSizes.h_normal};
+      ? theme?.fontSizes[buttonSizes[$size].fontSize]
+      : theme?.fontSizes.h_normal};
 
   font-family: ${({ theme, $fontFamily }) =>
-    $fontFamily ? theme.fontFamily[$fontFamily] : theme.fontFamily.Inter};
+    $fontFamily ? theme?.fontFamily[$fontFamily] : theme?.fontFamily?.Poppins};
   margin: ${({ $margin }) => $margin};
   padding: ${({ $padding, $size }) =>
     $padding ? $padding : $size ? buttonSizes[$size].padding : "8px 20px"};
@@ -143,9 +143,9 @@ export const ButtonStyled = styled.button<ButtonStyleProps>`
 
   &:hover:not(:disabled) {
     background-color: ${({ theme, $hoverBgColor }) =>
-      $hoverBgColor ? theme.colors[$hoverBgColor] : theme.colors.transparent};
+      $hoverBgColor ? theme?.colors[$hoverBgColor] : theme?.colors?.transparent};
     color: ${({ theme, $hoverColor }) =>
-      $hoverColor ? theme.colors[$hoverColor] : theme.colors.primary};
+      $hoverColor ? theme?.colors[$hoverColor] : theme?.colors?.primary};
   }
 
   &:disabled {

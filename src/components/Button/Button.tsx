@@ -54,7 +54,7 @@ const Button = ({
   padding,
   margin = "0px",
   title = "OK",
-  fontFamily,
+  fontFamily='Inter',
   fontWeight,
   isDisabled,
   isLoading,
