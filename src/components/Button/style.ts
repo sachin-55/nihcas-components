@@ -68,7 +68,9 @@ const getVariantWiseButton = (variant?: ButtonVariantType) => {
           $color ? theme?.colors[$color] : theme?.colors?.primary};
         border: 2px solid
           ${({ theme, $borderColor }) =>
-            $borderColor ? theme?.colors[$borderColor] : theme?.colors?.primary};
+            $borderColor
+              ? theme?.colors[$borderColor]
+              : theme?.colors?.primary};
       `;
     case "no-style":
       return css<ButtonStyleProps>`
@@ -77,6 +79,7 @@ const getVariantWiseButton = (variant?: ButtonVariantType) => {
         box-sizing: border-box;
         color: inherit;
         max-width: fit-content;
+        ${defaultButton};
       `;
     default:
       return css``;
@@ -143,7 +146,9 @@ export const ButtonStyled = styled.button<ButtonStyleProps>`
 
   &:hover:not(:disabled) {
     background-color: ${({ theme, $hoverBgColor }) =>
-      $hoverBgColor ? theme?.colors[$hoverBgColor] : theme?.colors?.transparent};
+      $hoverBgColor
+        ? theme?.colors[$hoverBgColor]
+        : theme?.colors?.transparent};
     color: ${({ theme, $hoverColor }) =>
       $hoverColor ? theme?.colors[$hoverColor] : theme?.colors?.primary};
   }
