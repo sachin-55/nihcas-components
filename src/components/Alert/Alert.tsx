@@ -1,6 +1,6 @@
 import React from "react";
 
-import CloseSVG from "../../assets/icons/cross.svg?react";
+import CloseSVG from "../../@assets/icons/cross.svg?react";
 import { ThemeType } from "../../theme";
 import { Button } from "../Button";
 import { AlertStyled } from "./style";

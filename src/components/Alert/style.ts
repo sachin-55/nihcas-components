@@ -38,7 +38,7 @@ export const AlertStyled = styled.div`
     }
   }
   &.error {
-    background-color: ${({ theme }) => theme.colors?.success};
+    background-color: ${({ theme }) => theme.colors?.danger};
     color: ${({ theme }) => theme.colors?.cloudWhite};
     & svg.close-icon {
       path {
