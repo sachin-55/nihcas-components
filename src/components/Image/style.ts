@@ -1,13 +1,14 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { StylePropsType } from ".";
 
-const ImageStyled = styled.img`
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 10px;
+const ImageStyled = styled.img<StylePropsType>`
+  height: ${({ imageHeight }) => imageHeight || "100%"};
+  width: ${({ imageWidth }) => imageWidth || "100%"};
+  object-fit: ${({ objectFit }) => objectFit || "cover"};
+  border-radius: ${({ radius }) => radius || "10px"};
   filter: blur(0px);
   animation: fadeIn 1.5s ease-in-out;
-  background: #6663;
+  background: transparent;
 
   &.noImage {
     object-fit: contain;

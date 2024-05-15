@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Flex from "../Flex";
+import Flex from "../../components/Flex";
 import Typography from "../Typography";
 import { CSSProperties, Fragment } from "react";
 import { useTheme } from "styled-components";

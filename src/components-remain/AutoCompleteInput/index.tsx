@@ -3,7 +3,7 @@ import { FaCheck } from "react-icons/fa6";
 import styled from "styled-components";
 
 import useDetectOutsideClick from "../../hooks/useDetectOutsideClick";
-import Flex from "../Flex";
+import Flex from "../../components/Flex";
 import Input from "../Input";
 import Typography from "../Typography";
 

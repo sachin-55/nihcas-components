@@ -1,37 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import ImageStyled from "./style";
+import ImageStyled from './style';
 
-interface ImageWithDefaultProps extends React.ComponentPropsWithoutRef<"img"> {
-  src?: string;
+interface Props extends React.ComponentProps<'img'> {
+  src: string;
   fallbackSrc?: string;
   errorSrc?: string;
   alt?: string;
-  className?: string;
-  style?: React.CSSProperties;
 }
 
-export type StylePropsType = {
-  objectFit?: React.CSSProperties["objectFit"];
-  imageHeight?: string;
-  imageWidth?: string;
-  radius?: string;
-};
+const ErrorImage = 'https://via.placeholder.com/500?text=Image+Not+Supported';
 
-const brokenImagePLaceholder =
-  "https://via.placeholder.com/500?text=Image+Not+Supported";
+const NoImage = 'https://via.placeholder.com/500?text=Image+Not+Found';
 
-const noImagePLaceholder =
-  "https://via.placeholder.com/500?text=Image+Not+Found";
-
-const Image: React.FC<ImageWithDefaultProps & StylePropsType> = ({
+const Image = ({
   src,
-  fallbackSrc = noImagePLaceholder,
-  errorSrc = brokenImagePLaceholder,
-  alt,
+  alt = '',
+  errorSrc = ErrorImage,
+  fallbackSrc = NoImage,
   className,
   ...restProps
-}) => {
+}: Props) => {
   const [imageSrc, setImageSrc] = useState(src);
   const [imageLoadingError, setImageLoadingError] = useState(false);
 
@@ -61,7 +50,7 @@ const Image: React.FC<ImageWithDefaultProps & StylePropsType> = ({
       src={imageSrc}
       alt={alt}
       onError={handleImageError}
-      className={`${className} ${imageLoadingError ? "noImage" : ""}`}
+      className={`${className} ${imageLoadingError ? 'noImage' : ''}`}
       loading="lazy"
       {...restProps}
     />

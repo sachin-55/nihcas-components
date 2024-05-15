@@ -1,25 +1,28 @@
-import React from 'react';
+import React from "react";
 
-import DefaultUserSVG from '../../assets/defaultUser.svg';
-import { fake_avatar_url } from '../../utils';
-import AvatarStyled from './style';
+import Image from "../Image";
+import AvatarStyled from "./style";
 
-export type SizeType = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xsm' | number;
+export type SizeType = "xxl" | "xl" | "lg" | "md" | "sm" | "xsm" | number;
+
+const fake_avatar_url = "https://i.pravatar.cc/300?" + Date.now();
 
 interface Props {
   style?: React.CSSProperties;
-  size?: SizeType;
-  src: string;
+  size?: "xxl" | "xl" | "lg" | "md" | "sm" | "xsm" | number;
+  src?: string;
   [key: string]: unknown;
 }
 
-const Avatar = ({ size = 'sm', src, ...restProps }: Props) => {
+const Avatar = ({
+  size = "md",
+  src = fake_avatar_url,
+  ...restProps
+}: Props) => {
   return (
-    <AvatarStyled
-      src={src || fake_avatar_url || DefaultUserSVG}
-      $size={size}
-      {...restProps}
-    />
+    <AvatarStyled $size={size} {...restProps}>
+      <Image src={src || fake_avatar_url} />
+    </AvatarStyled>
   );
 };
 
